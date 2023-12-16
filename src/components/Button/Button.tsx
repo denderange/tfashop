@@ -8,7 +8,6 @@ type ButtonProps = {
 }
 
 const Button = ({ text, styleClasses, ariaLabel, children }: ButtonProps) => {
-	console.log(styleClasses)
 	return (
 		<button
 			className={styleClasses}

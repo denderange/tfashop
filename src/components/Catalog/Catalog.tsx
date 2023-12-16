@@ -1,8 +1,12 @@
+import { useState } from "react";
 import Button from '../Button/Button'
 import styles from './Catalog.module.css'
 import CardProduct from '../CardProduct/CardProduct'
+import RangeSlider from "../RangeSlider/RangeSlider";
 
 const Catalog = () => {
+	const [value, setValue] = useState({ min: 0, max: 100 });
+
 	return (
 		<section className={styles["catalog"]}>
 			<div className={`container ${styles["catalog__container"]}`}>
@@ -11,14 +15,23 @@ const Catalog = () => {
 				<div className={`grid ${styles["catalog__content"]}`}>
 					<div className={styles["catalog__left"]}>
 						<div className={styles["catalog__filters"]}>
-
 							<h3 className={styles["catalog__subtitle"]}>Подбор <br /> по параметрам</h3>
 							<div className={styles["catalog__prop"]}>
 								<strong className={styles["catalog__caption"]}>Цена, руб</strong>
 								<div className={[styles["catalog__prop-inner"], styles["catalog-price"]].join(' ')}>
-									<input type="text" className={styles["catalog-price__input"]} />
-									<input type="text" className={styles["catalog-price__input"]} />
-									<div className={styles["catalog-price__element"]}></div>
+									<div className={styles["catalog-price__wrapper"]}>
+										<input type="text" className={styles["catalog-price__input"]} />
+										<input type="text" className={styles["catalog-price__input"]} />
+									</div>
+
+									<div className={styles["catalog-price__element"]}>
+										<div>
+											<RangeSlider min={0} max={100} step={1} value={value} onChange={setValue} styleClasses={""} />
+											<p>The min value is: <span>{value.min}</span></p>
+											<p>The max value is: <span>{value.max}</span></p>
+										</div>
+									</div>
+
 								</div>
 							</div>
 
