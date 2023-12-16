@@ -31,7 +31,6 @@ const Catalog = () => {
 											<p>The max value is: <span>{value.max}</span></p>
 										</div>
 									</div>
-
 								</div>
 							</div>
 
@@ -50,10 +49,10 @@ const Catalog = () => {
 							</div>
 
 							<div className={styles["catalog__prop"]}>
-								<strong className={styles["catalog__caption"]}>Пол</strong>
+								<strong className={styles["catalog__caption"]}>Размер</strong>
 								<div className={[styles["catalog__prop-inner"], styles["catalog-price"]].join(' ')}>
 									<table className={styles["sizes-table"]}>
-										<caption>Размер</caption>
+										<caption>Таблица размеров</caption>
 										<tbody>
 											<tr>
 												<td>35</td>
@@ -74,8 +73,11 @@ const Catalog = () => {
 									</table>
 								</div>
 							</div>
-							<Button text='Применить' styleClasses="btn btn-reset btn--secondary" />
-							<Button text='сбросить' styleClasses="catalog__reset" />
+
+							<div className={styles["catalog-filters__btns"]}>
+								<Button text='Применить' styleClasses="btn btn--secondary" />
+								<Button text='сбросить' styleClasses="btn-small" />
+							</div>
 						</div>
 					</div>
 
@@ -106,6 +108,7 @@ const Catalog = () => {
 								<CardProduct />
 							</li>
 						</ul>
+						<Button text='Показать еще' styleClasses="btn catalog__more btn--primary" />
 					</div>
 				</div>
 			</div>

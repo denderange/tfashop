@@ -12,24 +12,32 @@
 
 .btn--primary{
 	background-color: var(--color-carnation);
-	color: var(--color-white);
-	
+	color: var(--color-white);	
 }
 
 .btn--primary:hover{
 	background-color: var(--color-mojo);
 }
 
-.btn-reset{
-
-} 
-
 .btn--secondary{
-
+	background-color: var(--color-river-bed);
+	color: var(--color-white);
+	width: 100%;
+	margin-bottom: 20px;
 }
 
-.catalog__reset{
-	
+.btn--secondary:hover{
+	background-color: var(--color-tuna);
+}
+
+.btn-small{
+	color: var(--color-river-bed);
+	font: var(--middle-book);
+	transition: color 0.3s ease-in-out;
+}
+
+.btn-small:hover{
+	color: var(--color-bombay);
 }
 
 .product__btn{
@@ -50,4 +58,8 @@
 
 .product__btn:hover{
 	background-color: var(--color-tuna);
+}
+
+.catalog__more{
+	margin-top: 40px;
 }

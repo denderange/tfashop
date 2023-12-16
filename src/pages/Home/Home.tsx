@@ -1,12 +1,15 @@
-import React from 'react'
 import Hero from '../../components/Hero/Hero'
 import Catalog from '../../components/Catalog/Catalog'
+import SectionAbout from '../../components/SectionAbout/SectionAbout'
+import Quiz from '../../components/Quiz/Quiz'
 
 const Home = () => {
 	return (
 		<>
-			<Hero />
-			<Catalog />
+			{/* <Hero /> */}
+			{/* <Catalog /> */}
+			{/* <SectionAbout /> */}
+			<Quiz />
 		</>
 	)
 }
