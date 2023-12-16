@@ -1,0 +1,53 @@
+.js-move-to{
+	color: inherit;
+}
+
+.btn{
+	padding: 22px 47px;
+	border-radius: 4px;
+	font: var(--middle-regular);
+	transition: color 0.3s ease-in-out, 
+	background-color 0.3s ease-in-out;
+}
+
+.btn--primary{
+	background-color: var(--color-carnation);
+	color: var(--color-white);
+	
+}
+
+.btn--primary:hover{
+	background-color: var(--color-mojo);
+}
+
+.btn-reset{
+
+} 
+
+.btn--secondary{
+
+}
+
+.catalog__reset{
+	
+}
+
+.product__btn{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 80px;
+	height: 80px;
+	background-color: var(--color-river-bed);
+	border-radius: 100%;
+	transition: background-color 0.3s ease-in-out;
+}
+
+.product__btn img{
+	width: 32px;
+	height: 32px;
+}
+
+.product__btn:hover{
+	background-color: var(--color-tuna);
+}

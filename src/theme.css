@@ -1,0 +1,47 @@
+@font-face {
+	font-family: 'VremenaGroteskMedium';
+	src: url('./assets/fonts/vremenagroteskmedium.woff2') format('woff2')
+}
+@font-face {
+	font-family: 'VremenaGroteskBook';
+	src: url('./assets/fonts/vremenagroteskbook.woff2') format('woff2')
+}
+@font-face {
+	font-family: 'VremenaGroteskBold';
+	src: url('./assets/fonts/vremenagroteskbold.woff2') format('woff2')
+}
+
+:root {
+	/* colors */
+	--color-black: #000;
+	--color-white: #fff;
+	--color-seashell-peach : #FFF4EE;
+	--color-cameo : #DBBBA9;
+	--color-carnation : #F14F4F;
+	--color-mojo : #CC4949;
+	--color-burnt-umber : #8C2828;
+	--color-bombay : #B2B5BB;
+	--color-river-bed : #444B58;
+	--color-tuna : #31343C;
+	--color-border: rgba(255, 255, 255, 0.5);
+	--color-east-bay : #484283;
+
+	/* sizes */
+	--grid-gap: 20px;
+	--main-offset: 40px;
+	--second-offset: 20px;
+  --small-offset: 10px;
+  --big-offset: 60px;
+
+	/* fonts */
+	--font-bold: "VremenaGroteskBold";
+	--font-book: "VremenaGroteskBook";
+	--font-regular: "VremenaGroteskMedium";
+
+	--middle-high-bold: 700 30px / 140% var(--font-bold);
+  --prehigh-book: 400 24px / 24px var(--font-book);
+  --prehigh-regular: 600 20px / 20px var(--font-regular);
+  --middle-book: 400 16px / 140% var(--font-book);
+  --middle-regular: 400 16px / 140% var(--font-regular);
+  --small-book: 400 14px / 140% var(--font-book);
+}

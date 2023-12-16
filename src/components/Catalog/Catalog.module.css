@@ -1,0 +1,66 @@
+.catalog{
+	padding: var(--big-offset) 0;
+}
+
+.catalog__title{
+	margin-bottom: var(--main-offset);
+}
+
+.catalog__left{
+	grid-column: span 3;
+	background-color: var(--color-seashell-peach);
+	border-radius: 4px;
+	padding: var(--second-offset);
+}
+
+.catalog__caption{
+	font: var(--middle-book);
+	margin-bottom: 20px;
+	display: block;
+}
+
+.custom-checkbox{
+	/* font: var(); */
+}
+
+.custom-checkbox__content{
+	/* padding-left: 35px; */
+}
+
+.custom-checkbox__content::before{
+	border-color: var(--color-cameo);
+	border-radius: 4px;
+	width: 34px;
+	height: 34px;
+}
+
+.custom-checkbox__content::after{
+	background-image: url('../src/assets/icons/iconCheck.svg');
+}
+
+.catalog__prop-checkboxes{
+	display: flex;
+	justify-content: space-between;
+}
+
+.catalog__subtitle{
+	font: var(--prehigh-book);
+	margin-bottom: var(--second-offset);
+}
+
+.catalog__prop{
+	margin-bottom: var(--second-offset);
+}
+
+.catalog__grid{
+	grid-column: span 9;
+	grid-template-columns: repeat(9, 1fr);
+}
+
+.catalog-list{
+	grid-template-columns: repeat(9, 1fr);
+}
+
+.catalog-list__item{
+	grid-column: span 3;
+}
