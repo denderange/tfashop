@@ -63,3 +63,16 @@
 .catalog__more{
 	margin-top: 40px;
 }
+
+.btn-quiz{
+	padding: 18px 44px;
+	color: var(--color-river-bed);
+	border: 1px solid var(--color-river-bed);
+	border-radius: 4px;
+	transition: all 0.3s ease-in-out;
+}
+
+.btn-quiz:hover{
+	color: var(--color-white);
+	background-color: var(--color-river-bed);
+}

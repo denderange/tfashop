@@ -2,6 +2,8 @@ import Hero from '../../components/Hero/Hero'
 import Catalog from '../../components/Catalog/Catalog'
 import SectionAbout from '../../components/SectionAbout/SectionAbout'
 import Quiz from '../../components/Quiz/Quiz'
+import Team from '../../components/Team/Team'
+import Faq from '../../components/Faq/Faq'
 
 const Home = () => {
 	return (
@@ -9,7 +11,9 @@ const Home = () => {
 			{/* <Hero /> */}
 			{/* <Catalog /> */}
 			{/* <SectionAbout /> */}
-			<Quiz />
+			{/* <Quiz /> */}
+			{/* <Team /> */}
+			<Faq />
 		</>
 	)
 }
