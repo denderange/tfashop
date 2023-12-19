@@ -45,4 +45,6 @@
   --middle-book: 400 16px / 140% var(--font-book);
   --middle-regular: 400 16px / 140% var(--font-regular);
   --small-book: 400 14px / 140% var(--font-book);
+
+	--shadow: 2px 4px 10px rgba(0, 13, 84, 0.20)
 }

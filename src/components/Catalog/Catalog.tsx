@@ -1,11 +1,72 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useFetchAllProductsQuery, useFethcProductByIdQuery } from "../../redux/slices/apiSlice";
 import Button from '../Button/Button'
-import styles from './Catalog.module.css'
 import CardProduct from '../CardProduct/CardProduct'
 import RangeSlider from "../RangeSlider/RangeSlider";
+import styles from './Catalog.module.css'
 
 const Catalog = () => {
 	const [value, setValue] = useState({ min: 0, max: 100 });
+	const [products, setProducts] = useState([])
+
+	const getAllProducts = () => {
+		const { data, error, isLoading } = useFetchAllProductsQuery();
+
+		if (isLoading) return <p>Loading...</p>;
+		if (error) return <p>Error</p>;
+
+		return (
+			<li className={styles["catalog-list__item"]} key={data['id']}>
+				<CardProduct
+					imgSrc={data['image']}
+					title={data['title']}
+					price={data['price']}
+				/>
+			</li>
+		)
+	}
+
+	const getProduct = (productId: string) => {
+		const { data, error, isLoading } = useFethcProductByIdQuery(productId);
+
+		if (isLoading) return <p>Loading...</p>;
+		if (error) return <p>Error</p>;
+
+		console.log(data)
+		// return (
+		// 	<div>
+		// 		<h1>{data.name}</h1>
+		// 		<p>Email: {data.email}</p>
+		// 	</div>
+		// );
+	};
+	// getProduct("16")
+
+	const showMore = () => {
+		console.log('first')
+	}
+
+	const getProducts = () => {
+		fetch('https://fakestoreapi.com/products')
+			.then(res => {
+				return res.json()
+			})
+			.then(data => {
+				if (data) {
+					// setProducts(data)
+					console.log(data)
+				}
+			})
+			.catch((error) => console.log(error));
+	}
+
+	useEffect(() => {
+		// getProducts()
+		// getProduct("40")
+	}, [])
+
+	// console.log(data)
+
 
 	return (
 		<section className={styles["catalog"]}>
@@ -83,32 +144,22 @@ const Catalog = () => {
 
 					<div className={`${styles["catalog__grid"]}`}>
 						<ul className={`grid ${styles["catalog-list"]}`}>
-							<li className={styles["catalog-list__item"]}>
-								<CardProduct />
-							</li>
-							<li className={styles["catalog-list__item"]}>
-								<CardProduct />
-							</li>
-							<li className={styles["catalog-list__item"]}>
-								<CardProduct />
-							</li>
-							<li className={styles["catalog-list__item"]}>
-								<CardProduct />
-							</li>
-							<li className={styles["catalog-list__item"]}>
-								<CardProduct />
-							</li>
-							<li className={styles["catalog-list__item"]}>
-								<CardProduct />
-							</li>
-							<li className={styles["catalog-list__item"]}>
-								<CardProduct />
-							</li>
-							<li className={styles["catalog-list__item"]}>
-								<CardProduct />
-							</li>
+							{/* {products.map(product => (
+								<li className={styles["catalog-list__item"]} key={product['id']}>
+									<CardProduct
+										imgSrc={product['images'][0]}
+										title={product['title']}
+										price={product['price']}
+									/>
+								</li>
+							))} */}
 						</ul>
-						<Button text='Показать еще' styleClasses="btn catalog__more btn--primary" />
+
+						<Button
+							text='Показать еще'
+							styleClasses="btn catalog__more btn--primary"
+							handleClick={showMore}
+						/>
 					</div>
 				</div>
 			</div>

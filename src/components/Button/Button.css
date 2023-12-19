@@ -76,3 +76,7 @@
 	color: var(--color-white);
 	background-color: var(--color-river-bed);
 }
+
+.form-feedback__btn{
+	width: 100%;
+}

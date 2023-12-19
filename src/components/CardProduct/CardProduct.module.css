@@ -38,6 +38,9 @@
 .product__title{
 	font: var(--middle-book);
 	color: var(--color-river-bed);
+	white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .product__price{
@@ -54,5 +57,5 @@
 .product:hover .product__btns{
 	opacity: 1;
 	visibility: visible;
-	background: rgba(173, 173, 173, 0.2);
+	background: rgba(173, 173, 173, 0.6);
 }

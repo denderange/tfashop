@@ -1,0 +1,39 @@
+.footer{
+	width: 100%;
+	background-color: var(--color-river-bed);
+}
+
+.footer .footer__container{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: var(--second-offset) 15px;
+}
+
+.logo{
+	font: var(--font-middle-high);
+	color: var(--color-white);
+	font-size: 30px;
+}
+
+.footer__left{
+}
+
+.footer__right{
+	display: flex;
+	justify-content: flex-end;
+}
+
+.nav__list{
+	display: flex;
+	align-self: center;
+}
+
+.nav__item:not(:last-child){
+	margin-right: var(--main-offset);
+}
+
+.nav__link{
+	font: var(--font-small);
+	color: var(--color-white);
+}

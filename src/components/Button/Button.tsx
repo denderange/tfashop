@@ -4,14 +4,16 @@ type ButtonProps = {
 	text: string,
 	styleClasses: string,
 	ariaLabel?: string,
-	children?: any
+	children?: any,
+	handleClick?: () => void
 }
 
-const Button = ({ text, styleClasses, ariaLabel, children }: ButtonProps) => {
+const Button = ({ text, styleClasses, ariaLabel, children, handleClick }: ButtonProps) => {
 	return (
 		<button
 			className={styleClasses}
 			aria-label={ariaLabel}
+			onClick={handleClick}
 		>
 			{text}{children}
 		</button>

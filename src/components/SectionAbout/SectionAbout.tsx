@@ -20,7 +20,7 @@ const SectionAbout = () => {
 				</div>
 
 				<div className={styles["about__image"]}>
-					<img src="../src/assets/images/img-bot-2.jpg" aria-hidden="true" />
+					<img src="../src/assets/images/img-bot-2.webp" aria-hidden="true" />
 				</div>
 			</div>
 		</section>
