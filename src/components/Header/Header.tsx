@@ -1,8 +1,12 @@
+import { useState, lazy, Suspense, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { navLinks } from '../../utils/navlinks'
 import styles from './Header.module.css'
+const CartMini = lazy(() => import('../Cart/CartMini'))
 
 const Header = () => {
+	const [cartIsVisible, setCartIsVisible] = useState(false)
+	// @ts-ignore
 
 	const mapNavLinks = () => (
 		navLinks.map(item => (
@@ -13,6 +17,19 @@ const Header = () => {
 			</li>
 		))
 	)
+
+	const handleClickCart = () => {
+		setCartIsVisible(!cartIsVisible)
+	}
+
+	// useEffect(() => {
+	// 	document.addEventListener('click', (e: any) => {
+	// 		const miniCart = document.querySelector('.mini-cart')
+	// 		if (!e.target.classList.contains('mini-cart') && !e.target.classList.contains('cart__btn')) {
+	// 			miniCart?.classList.remove('mini-cart--visible')
+	// 		}
+	// 	})
+	// }, [])
 
 	return (
 		<header className={styles["header"]}>
@@ -34,11 +51,15 @@ const Header = () => {
 					<div className={`${styles["cart"]} ${styles["header__cart"]}}`}>
 						<button
 							className={`${styles["cart__btn"]}}`}
+							onClick={handleClickCart}
 						>
 							<img src="../src/assets/icons/iconBasket.svg" alt="basket" />
 							<div className={styles["cart__count"]}>1</div>
 						</button>
 					</div>
+					<Suspense fallback={<div>loading...</div>}>
+						<CartMini isVisible={cartIsVisible} />
+					</Suspense>
 				</div>
 
 			</div >

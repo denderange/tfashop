@@ -41,7 +41,6 @@ h1, h2, h3, h4, h5, h6{
 
 input, input:focus{
 	outline: none;
-	border: none;
 }
 
 .input-feedback{
@@ -90,6 +89,17 @@ input, input:focus{
 	overflow: hidden;
 	border: 0;
 	clip: rect(0 0 0 0);
+}
+
+.simplebar-track{
+	background-color: rgba(255, 0, 0, 0.1);
+	border-radius: 4px;
+}
+
+.simplebar-scrollbar::before {
+  background-color: var(--color-carnation);
+	width: 4px;
+	margin: 0 auto;
 }
 
 .main{

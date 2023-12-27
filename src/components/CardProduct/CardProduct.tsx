@@ -1,41 +1,63 @@
+import { useState, lazy, Suspense } from 'react'
 import iconShow from '../../assets/icons/iconShow.svg'
 import iconBasket from '../../assets/icons/iconBasket.svg'
-import Button from '../Button/Button'
+import { Modal } from 'react-responsive-modal';
 import styles from './CardProduct.module.css'
+import 'react-responsive-modal/styles.css';
+
+const ModalWindow = lazy(() => import('../ModalWindow/ModalWindow'))
 
 type CardProductProps = {
-	id?: number,
+	id: number,
 	description?: string,
 	imgSrc: string,
 	title: string,
 	price: number
 }
 
-const CardProduct = ({ imgSrc = "", title = "", price = 0, id = 0 }: CardProductProps) => {
+const CardProduct = ({ imgSrc = "", title = "", price = 0, id }: CardProductProps) => {
+	const [open, setOpen] = useState(false);
+
+	const onOpenModal = () => setOpen(true);
+	const onCloseModal = () => setOpen(false);
+
 	return (
 		<article className={styles["product"]}>
-
 			<div className={styles["product__image"]}>
 				<img src={imgSrc} alt="Prod title..." />
-
 				<div className={styles["product__btns"]}>
-					<Button
-						text=''
-						styleClasses='product__btn'
-						ariaLabel='Показать информацию о товаре'
+					<button
+						className="product__btn"
+						aria-label="Показать информацию о товаре"
 						data-id={id}
+						onClick={onOpenModal}
 					>
 						<img src={iconShow} alt="Показать информацию о товаре" />
-					</Button>
-					<Button text='' styleClasses='product__btn' ariaLabel='Добавить товар в корзину'>
+					</button>
+					<button
+						className="product__btn"
+						aria-label="Добавить товар в корзину"
+						data-id={id}
+					// onClick={onOpenModal}
+					>
 						<img src={iconBasket} alt="Добавить товар в корзину" />
-					</Button>
+					</button>
 				</div>
-
 			</div>
 
 			<h3 className={styles["product__title"]}>{title}</h3>
 			<span className={styles["product__price"]}>{price} $</span>
+
+			<Modal
+				open={open}
+				onClose={onCloseModal}
+				center
+				showCloseIcon={false}
+			>
+				<Suspense fallback={<div>loading.......</div>}>
+					<ModalWindow productId={id} />
+				</Suspense>
+			</Modal>
 		</article>
 	)
 }
