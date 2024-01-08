@@ -46,10 +46,6 @@
 	transition: opacity 0.3s ease;
 }
 
-.modal-preview__item:hover{
-	opacity: 0.7;
-}
-
 .modal-preview img{
 	display: block;
 	width: 100%;
@@ -107,10 +103,6 @@
 	border-radius: 4px;
 	padding: 6px 27px;
 	transition: all 0.3s ease-in-out;
-}
-
-.modal-sizes__btn:hover{
-	background-color: var(--color-bombay);
 }
 
 .modal-sizes__btn--active{
@@ -177,3 +169,13 @@
 	border: none;
 }
 
+/* ------ */
+@media (min-width: 1025px){
+	.modal-sizes__btn:hover{
+		background-color: var(--color-bombay);
+	}
+
+	.modal-preview__item:hover{
+		opacity: 0.7;
+	}
+}

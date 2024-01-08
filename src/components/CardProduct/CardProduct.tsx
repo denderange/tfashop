@@ -4,6 +4,7 @@ import iconBasket from '../../assets/icons/iconBasket.svg'
 import { Modal } from 'react-responsive-modal';
 import styles from './CardProduct.module.css'
 import 'react-responsive-modal/styles.css';
+import LoaderSpinner from '../LoaderSpinner/LoaderSpinner';
 
 const ModalWindow = lazy(() => import('../ModalWindow/ModalWindow'))
 
@@ -54,7 +55,7 @@ const CardProduct = ({ imgSrc = "", title = "", price = 0, id }: CardProductProp
 				center
 				showCloseIcon={false}
 			>
-				<Suspense fallback={<div>loading.......</div>}>
+				<Suspense fallback={<LoaderSpinner />}>
 					<ModalWindow productId={id} />
 				</Suspense>
 			</Modal>

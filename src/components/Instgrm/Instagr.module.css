@@ -89,3 +89,20 @@
 .inst__item:nth-child(2){
 	grid-row: 2;
 }
+
+/* ------ */
+@media (max-width: 320px){
+	.inst{
+		margin: 0;
+		padding: 0;
+	}
+	.inst__container{
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+	.inst__left{
+		width: 100%;
+		margin: 10px 0;
+	}
+}

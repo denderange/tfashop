@@ -1,16 +1,23 @@
-import { useRef } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import SimpleBar from 'simplebar-react';
 import 'simplebar-react/dist/simplebar.min.css';
 import styles from './CartMini.module.css'
 import prodImg from '../../assets/images/quiz-photo-1.jpg'
 import iconTrash from '../../assets/icons/iconTrash.svg'
 import Button from '../Button/Button'
+import { Modal } from 'react-responsive-modal';
+import 'react-responsive-modal/styles.css';
+import LoaderSpinner from '../LoaderSpinner/LoaderSpinner';
+const OrderPlacing = lazy(() => import('../OrderPlacing/OrderPlacing'))
 
 type CartMiniProps = {
 	isVisible: boolean | false
 }
 
 const CartMini = ({ isVisible }: CartMiniProps) => {
+	const [open, setOpen] = useState(false);
+	const onOpenModal = () => setOpen(true);
+	const onCloseModal = () => setOpen(false);
 
 	return (
 		<div className={isVisible ? `${styles["mini-cart"]} ${styles["mini-cart--visible"]}` : styles["mini-cart"]}>
@@ -93,8 +100,20 @@ const CartMini = ({ isVisible }: CartMiniProps) => {
 				<Button
 					text="В корзину"
 					styleClasses="btn btn--primary btn-mini-cart"
+					handleClick={onOpenModal}
 				/>
 			</div>
+
+			<Modal
+				open={open}
+				onClose={onCloseModal}
+				center
+				showCloseIcon={false}
+			>
+				<Suspense fallback={<LoaderSpinner />}>
+					<OrderPlacing />
+				</Suspense>
+			</Modal>
 		</div>
 	)
 }

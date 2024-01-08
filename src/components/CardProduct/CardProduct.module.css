@@ -50,12 +50,13 @@
 	color: var(--color-river-bed);
 }
 
-.product:hover{
-
-}
-
 .product:hover .product__btns{
 	opacity: 1;
 	visibility: visible;
 	background: rgba(173, 173, 173, 0.6);
+}
+
+/* ------ */
+@media (max-width: 1025px){
+
 }

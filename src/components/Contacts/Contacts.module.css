@@ -68,3 +68,21 @@
 	width: 680px;
 	height: 500px;
 }
+
+/* ------ */
+@media (max-width: 320px){
+	.contacts__container{
+		flex-wrap: wrap;
+	}
+	.contacts__address{
+		display: block;
+		font-family: var(--font-book);
+		font-size: 16px;
+	}
+	.contacts__text{
+		width: auto;
+	}
+	.contacts__map{
+		width: 100%;
+	}
+}

@@ -1,6 +1,12 @@
 import Button from '../Button/Button'
 import styles from './Instagr.module.css'
 
+import instImg1 from '../../assets/images/inst1.jpg'
+import instImg2 from '../../assets/images/inst2.jpg'
+import instImg3 from '../../assets/images/inst3.jpg'
+import instImg4 from '../../assets/images/inst4.jpg'
+import instImg5 from '../../assets/images/inst5.jpg'
+
 const Instgrm = () => {
 	return (
 		<section className={styles["inst"]}>
@@ -30,8 +36,34 @@ const Instgrm = () => {
 					</a>
 					<div className={styles["inst__content"]}>
 						<article className={styles["inst__item"]}>
+							<h3 className="visually-hidden">inst-photo</h3>
 							<a href="" target="_blank">
-								<img src="" alt="instagram photo" />
+								<img src={instImg1} alt="instagram photo" />
+							</a>
+						</article>
+
+						<article className={styles["inst__item"]}>
+							<h3 className="visually-hidden">inst-photo</h3>
+							<a href="" target="_blank">
+								<img src={instImg2} alt="instagram photo" />
+							</a>
+						</article>
+						<article className={styles["inst__item"]}>
+							<h3 className="visually-hidden">inst-photo</h3>
+							<a href="" target="_blank">
+								<img src={instImg3} alt="instagram photo" />
+							</a>
+						</article>
+						<article className={styles["inst__item"]}>
+							<h3 className="visually-hidden">inst-photo</h3>
+							<a href="" target="_blank">
+								<img src={instImg4} alt="instagram photo" />
+							</a>
+						</article>
+						<article className={styles["inst__item"]}>
+							<h3 className="visually-hidden">inst-photo</h3>
+							<a href="" target="_blank">
+								<img src={instImg5} alt="instagram photo" />
 							</a>
 						</article>
 					</div>

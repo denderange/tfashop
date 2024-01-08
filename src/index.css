@@ -40,7 +40,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 input, input:focus{
-	outline: none;
+	/* outline: none; */
 }
 
 .input-feedback{
@@ -102,6 +102,9 @@ input, input:focus{
 	margin: 0 auto;
 }
 
-.main{
-	
+/* ------ */
+@media (max-width: 320px){
+	.grid {
+		grid-template-columns: repeat(4, 1fr);
+	}
 }

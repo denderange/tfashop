@@ -52,3 +52,50 @@
 	color: var(--color-light-gray);
 	font: var(--middle-book);
 }
+
+/* Step 3 */
+.quiz-question__label{
+	
+}
+.quiz-question__message{
+	width: 465px;
+	height: 246px;
+	padding: 10px;
+	font: var(--middle-book);
+	color: var(--color-tuna);
+	background-color: var(--color-white);
+	border: 1px solid var(--color-bombay);
+	border-radius: 4px;
+	margin-bottom: 20px;
+	resize: none;
+}
+
+/* Step 4 */
+.last-question__form{
+	display: flex;
+	flex-direction: column;
+	max-width: 555px;
+	border-radius: 4px;
+	padding: 40px;
+	margin-bottom: 20px;
+	background-color: var(--color-cameo);
+}
+
+.last-question__title{
+	font: var(--prehigh-regular);
+	font-size: 36px;
+	line-height: 1;
+	margin-bottom: 20px;
+	color: var(--color-white);
+}
+
+.last-question__descr{
+	color: var(--color-white);
+	margin-bottom: 20px;
+}
+
+.last-question__input{
+	max-width: 100%;
+	padding: 10px 20px;
+	margin-bottom: 10px;
+}

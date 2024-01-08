@@ -56,3 +56,30 @@
 	max-height: max-content;
 	padding: 20px 0;
 }
+
+/* ------ */
+@media (max-width: 320px){
+	.faq{
+		margin-top: 0px;
+		padding: 0;
+	}
+	.faq__title{
+		line-height: 1;
+		padding: 10px 0;
+		font-size: 1.5rem;
+		text-align: center;
+	}
+	.accordion__list{
+		margin: 10px auto;
+	}
+	.accordion__control{
+		padding: 5px;
+	}
+	.accordion__title{
+		font-size: 1rem;
+	}
+	.open + .accordion__content{
+		padding: 5px 0;
+		line-height: 1;
+	}
+}

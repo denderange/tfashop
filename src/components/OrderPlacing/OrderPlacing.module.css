@@ -1,0 +1,139 @@
+.modal-content{
+	width: 580px;
+	padding: 20px;
+}
+
+.cart-modal__top{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 40px;
+}
+
+.cart-modal__title{
+	font: var(--prehigh-regular);
+	font-weight: 400;
+}
+
+.cart-modal__order-number{
+	font: var(--small-book);
+	color: var(--color-bombay);
+}
+
+.cart-modal-order{
+	border-radius: 4px;
+	border: 1px solid #dbdbdb;
+	padding: 20px 10px 20px 20px;
+	margin-bottom: 20px;
+}
+
+.cart-modal-order__list{
+	display: none;
+	transition: all 0.3s ease-in-out;
+}
+
+.cart-modal-order__list--show{
+	display: block;
+}
+
+
+.cart-modal-order__top{
+	font: var(--small-book);
+	color: var(--color-bombay);
+}
+
+.cart-modal-order__top span{
+	color: var(--color-river-bed);
+	font-weight: 700;
+}
+
+.cart-modal-order__quantitty, .cart-modal-order__sum{
+	margin-bottom: 20px;
+}
+
+.cart-modal-order__show{
+	color: var(--color-river-bed);
+	display: inline-flex;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.cart-modal-order__show img{
+	width: 10px;
+	height: 10px;
+	object-fit: cover;
+	margin-left: 10px;
+	margin-top: 3px;
+	transition: all 0.3s ease-in-out;
+}
+
+.img-rotate{
+	transform: rotate(180deg);
+	
+}
+
+.cart-modal-product{
+	display: flex;
+	align-items: center;
+}
+
+.cart-modal-product__image{
+	flex-shrink: 0;
+	margin-right: 10px;
+	width: 100px;
+	height: 80px;
+}
+
+.cart-modal-product__image img{
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.cart-modal-product__content{
+	display: flex;
+	flex-grow: 1;
+	align-items: center;
+}
+
+.cart-modal-product__text{
+	margin-right: auto;
+	max-width: 290px;
+}
+
+.cart-modal-product__title{
+	font: var(--middle-book);
+	color: var(--color-river-bed);
+	margin-bottom: 10px;
+}
+
+.cart-modal-product__delete{
+	color: var(--color-bombay);
+}
+
+.cart-modal-order__item:not(:last-child){
+	margin-bottom: 14px;
+}
+
+/* ---form--- */
+.cart-modal__form{
+	display: flex;
+	flex-direction: column;
+}
+
+.cart-modal-input{
+	border: 1px solid #dddddd;
+	border-radius: 4px;
+	padding: 10px 20px;
+	background-color: #f6f6f6;
+	color: #696969;
+}
+
+.cart-modal-input:focus{
+	border: 1px solid #b6b6b6;
+}
+
+.cart-modal-input:not(:last-child){
+	margin-bottom: 10px;
+}

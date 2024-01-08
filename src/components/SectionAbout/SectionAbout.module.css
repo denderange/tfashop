@@ -75,3 +75,13 @@
 	left: -20px;
 	height: 100%;
 }
+
+/* ------ */
+@media (max-width: 320px){
+	.about__figure{
+		display: none;
+	}
+	.about__image{
+		/* display: none; */
+	}
+}

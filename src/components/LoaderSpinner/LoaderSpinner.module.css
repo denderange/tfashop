@@ -1,0 +1,26 @@
+.loader__dots{
+	margin-left: 150px;
+	margin-top: 150px;
+}
+
+.loader__dots span{
+	position: absolute;
+	width: var(--dot-size);
+	height: var(--dot-size);
+	background-color: var(--color-dot);
+	border-radius: 50%;
+	transform: rotate(calc(var(--i)*(360deg/var(--dots-amount)))) 
+						 translateY(var(--spinner-size));
+	animation: animate 1.5s linear infinite;
+	animation-delay: calc(var(--i)*0.1s);
+	opacity: 0;
+}
+
+@keyframes animate{
+	0%{
+		opacity: 1;
+	}
+	100%{
+		opacity: 0;
+	}
+}
