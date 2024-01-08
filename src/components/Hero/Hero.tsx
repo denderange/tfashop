@@ -1,3 +1,4 @@
+import { Link } from 'react-scroll';
 import Button from '../Button/Button';
 import styles from './Hero.module.css';
 
@@ -13,7 +14,17 @@ const Hero = () => {
 				<p className={styles["hero__descr"]}>
 					Мы продаем Nike, Adidas, Puma, Reebok, Converse и многие другие по низким ценам
 				</p>
-				<Button text='Перейти к покупкам' styleClasses="btn btn--primary js-move-to" />
+				<Link
+					className={styles["nav__link"]}
+					activeClass="active"
+					to="catalog"
+					spy={true}
+					smooth={true}
+					offset={50}
+					duration={500}
+				>
+					<Button text='Перейти к покупкам' styleClasses="btn btn--primary js-move-to" />
+				</Link>
 			</div>
 		</section>
 	)

@@ -10,7 +10,7 @@ const Quiz = () => {
 	const [steps, setSteps] = useState(1)
 
 	return (
-		<section className={styles["quiz"]}>
+		<section className={styles["quiz"]} id="quiz">
 			<div className="container">
 				<h2 className="visually-hidden">Подбор по параметрам</h2>
 				<div className={styles["quiz__content"]}>

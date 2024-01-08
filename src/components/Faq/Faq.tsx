@@ -35,7 +35,7 @@ const Faq = () => {
 	}
 
 	return (
-		<section className={styles["faq"]}>
+		<section className={styles["faq"]} id="faq">
 			<div className={`container ${styles["faq__container"]}`}>
 				<h2 className={`title ${styles["faq__title"]}`}>Часто задаваемые вопросы</h2>
 

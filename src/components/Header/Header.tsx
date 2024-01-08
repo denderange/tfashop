@@ -1,7 +1,7 @@
 import { useState, lazy, Suspense } from 'react'
 import useMediaQuery from '../../hooks/useMediaQuery'
-import { Link } from 'react-router-dom'
 import { navLinks } from '../../utils/navlinks'
+import { Link } from 'react-scroll'
 import iconBasket from '../../assets/icons/iconBasket.svg'
 import styles from './Header.module.css'
 import LoaderSpinner from '../LoaderSpinner/LoaderSpinner'
@@ -17,11 +17,18 @@ const Header = () => {
 		setBurgerActive(!burgerActive)
 	}
 
-	// @ts-ignore
 	const mapNavLinks = () => (
 		navLinks.map(item => (
 			<li className={styles["nav__item"]} key={item.linkText}>
-				<Link to={item.href} className={styles["nav__link"]}>
+				<Link
+					className={styles["nav__link"]}
+					activeClass="active"
+					to={item.id}
+					spy={true}
+					smooth={true}
+					offset={-65}
+					duration={500}
+				>
 					{item.linkText}
 				</Link>
 			</li>

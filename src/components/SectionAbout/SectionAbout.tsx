@@ -2,7 +2,7 @@ import styles from './SectionAbout.module.css'
 
 const SectionAbout = () => {
 	return (
-		<section className={styles["about"]}>
+		<section className={styles["about"]} id="about">
 			<img src="../src/assets/icons/figure-1.svg" alt="" className={styles["about__figure"]} aria-hidden="true" />
 			<div className={`container ${styles["about__container"]}`}>
 				<div className={styles["about__text"]}>

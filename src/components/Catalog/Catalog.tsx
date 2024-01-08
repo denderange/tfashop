@@ -43,7 +43,7 @@ const Catalog = () => {
 	}
 
 	return (
-		<section className={styles["catalog"]}>
+		<section className={styles["catalog"]} id="catalog">
 			<div className={`container ${styles["catalog__container"]}`}>
 				<h2 className={`title ${styles["catalog__title"]}`}>Каталог</h2>
 

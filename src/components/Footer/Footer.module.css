@@ -16,9 +16,6 @@
 	font-size: 30px;
 }
 
-.footer__left{
-}
-
 .footer__right{
 	display: flex;
 	justify-content: flex-end;

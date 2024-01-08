@@ -1,30 +1,37 @@
 interface INavLinks {
 	linkText: string,
-	href: string
+	href: string,
+	id: string
 }
 export const navLinks: INavLinks[] = [
 	{
 		linkText: "Каталог",
-		href: ""
+		href: "/",
+		id: "catalog"
 	},
 	{
 		linkText: "О нас",
-		href: ""
+		href: "/",
+		id: "about"
 	},
 	{
 		linkText: "Подбор товара",
-		href: ""
+		href: "/",
+		id: "quiz"
 	},
 	{
 		linkText: "Наша команда",
-		href: ""
+		href: "/",
+		id: "team"
 	},
 	{
-		linkText: "Доставка и оплата",
-		href: ""
+		linkText: "FAQ",
+		href: "/",
+		id: "faq"
 	},
 	{
 		linkText: "Контакты",
-		href: ""
+		href: "/",
+		id: "contacts"
 	}
 ]

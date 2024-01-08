@@ -41,7 +41,7 @@ const usersProfiles: IUserProfiles[] = [
 
 const Team = () => {
 	return (
-		<section className={styles["team"]}>
+		<section className={styles["team"]} id="team">
 			<img src="../src/assets/icons/figure-2.svg" aria-hidden="true" alt="" className={styles["team__figure"]} />
 			<div className={`container`}>
 				<h2 className={`title ${styles["team__title"]}`}>Наша команда</h2>

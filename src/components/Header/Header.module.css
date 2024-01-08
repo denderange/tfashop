@@ -53,6 +53,7 @@
 .nav__link{
 	position: relative;
 	outline: none;
+	cursor: pointer;
 	font: var(--font-small);
 	color: var(--color-white);
 }

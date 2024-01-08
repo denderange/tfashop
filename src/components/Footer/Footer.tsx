@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
 import { navLinks } from '../../utils/navlinks'
+import { Link } from 'react-scroll'
 import styles from './Footer.module.css'
 
 const Footer = () => {

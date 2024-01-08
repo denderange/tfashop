@@ -4,7 +4,7 @@ import styles from './Contacts.module.css'
 
 const Contacts = () => {
 	return (
-		<section className={styles["contacts"]}>
+		<section className={styles["contacts"]} id="contacts">
 			<div className={`container ${styles["contacts__container"]}`}>
 				<div className={styles["contacts__text"]}>
 					<h2 className={`title ${styles["contacts__title"]}`}>
