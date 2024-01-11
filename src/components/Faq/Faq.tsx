@@ -1,3 +1,4 @@
+import iconClose from '../../assets/icons/iconClose.svg'
 import styles from './Faq.module.css'
 
 interface IFaqList {
@@ -51,7 +52,7 @@ const Faq = () => {
 									{item.question}
 								</span>
 								<span className={styles["accordion__icon"]}>
-									<img src="../src/assets/icons/iconClose.svg" alt="" />
+									<img src={iconClose} alt="" />
 								</span>
 							</button>
 							<div className={styles["accordion__content"]} aria-hidden="true">

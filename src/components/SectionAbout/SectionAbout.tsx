@@ -1,3 +1,4 @@
+import bgImg from '../../assets/images/img-bot-2.webp'
 import styles from './SectionAbout.module.css'
 
 const SectionAbout = () => {
@@ -20,7 +21,7 @@ const SectionAbout = () => {
 				</div>
 
 				<div className={styles["about__image"]}>
-					<img src="../src/assets/images/img-bot-2.webp" aria-hidden="true" />
+					<img src={bgImg} aria-hidden="true" />
 				</div>
 			</div>
 		</section>

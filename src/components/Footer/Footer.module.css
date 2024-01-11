@@ -1,36 +1,23 @@
 .footer{
 	width: 100%;
-	background-color: var(--color-river-bed);
 }
 
-.footer .footer__container{
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: var(--second-offset) 15px;
+.footer__container{
+	font-size: 0.8rem;
+	color: var(--color-big-title);
+	text-align: center;
+}
+.footer__container span{
+	font-size: 1.2rem;
 }
 
-.logo{
-	font: var(--font-middle-high);
-	color: var(--color-white);
-	font-size: 30px;
+.footer__container a{
+	margin-left: 30px;
+	color: var(--color-east-bay);
+	text-decoration: underline;
+	transition: color 0.3s ease-in-out;
 }
 
-.footer__right{
-	display: flex;
-	justify-content: flex-end;
-}
-
-.nav__list{
-	display: flex;
-	align-self: center;
-}
-
-.nav__item:not(:last-child){
-	margin-right: var(--main-offset);
-}
-
-.nav__link{
-	font: var(--font-small);
-	color: var(--color-white);
+.footer__container a:hover{
+	color: coral;
 }

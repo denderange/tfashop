@@ -1,12 +1,12 @@
 import styles from './LoaderSpinner.module.css'
 
 const LoaderSpinner = () => {
-	const dots = Array.apply(null, Array(15))
+	const dots = [...Array(15).keys()]
 
 	return (
 		<div className={styles["loader__dots"]}>
-			{dots.map((item, index) => (
-				<span key={index} style={{ "--i": index + 1 } as React.CSSProperties}>
+			{dots.map((item) => (
+				<span key={item} style={{ "--i": item + 1 } as React.CSSProperties}>
 				</span>
 			))}
 		</div>

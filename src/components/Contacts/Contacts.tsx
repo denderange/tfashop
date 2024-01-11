@@ -1,3 +1,5 @@
+import iconVk from '../../assets/icons/iconVK.svg'
+import iconInstagramm from '../../assets/icons/iconInstagram.svg'
 import EmbeddedMap from '../EmbeddedMAp/EmbeddedMap'
 import Tooltip from '../Tooltip/Tooltip'
 import styles from './Contacts.module.css'
@@ -29,12 +31,12 @@ const Contacts = () => {
 					<ul className={styles["social"]}>
 						<li className={styles["social__item"]}>
 							<a href="" className={[styles["social__link"], styles["social_link--vk"]].join(' ')} aria-label='Мы в вконтакте'>
-								<img src="../src/assets/icons/iconVK.svg" alt="VK" />
+								<img src={iconVk} alt="VK" />
 							</a>
 						</li>
 						<li className={styles["social__item"]}>
 							<a href="" className={[styles["social__link"], styles["social_link--insta"]].join(' ')} aria-label='Мы в инстаграм'>
-								<img src="../src/assets/icons/iconInstagram.svg" alt="Instagram" />
+								<img src={iconInstagramm} alt="Instagram" />
 							</a>
 						</li>
 					</ul>

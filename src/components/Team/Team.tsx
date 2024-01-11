@@ -1,3 +1,9 @@
+import userPhoto1 from '../../assets/images/user-1.webp'
+import userPhoto2 from '../../assets/images/user-2.webp'
+import userPhoto3 from '../../assets/images/user-3.webp'
+import userPhoto4 from '../../assets/images/user-4.webp'
+import userPhoto5 from '../../assets/images/user-5.webp'
+import userPhoto6 from '../../assets/images/user-6.webp'
 import styles from './Team.module.css'
 
 interface IUserProfiles {
@@ -10,32 +16,32 @@ const usersProfiles: IUserProfiles[] = [
 	{
 		name: 'Alora Dakari',
 		job: 'Accountant',
-		imgSrc: '../src/assets/images/user-1.webp'
+		imgSrc: userPhoto1
 	},
 	{
 		name: 'Ashanti Mazi',
 		job: 'Database Analyst',
-		imgSrc: '../src/assets/images/user-2.webp'
+		imgSrc: userPhoto2
 	},
 	{
 		name: 'Zyaire Olatunde',
 		job: 'Security Specialist',
-		imgSrc: '../src/assets/images/user-3.webp'
+		imgSrc: userPhoto3
 	},
 	{
 		name: 'Nini Chidera',
 		job: 'Administrator',
-		imgSrc: '../src/assets/images/user-4.webp'
+		imgSrc: userPhoto4
 	},
 	{
 		name: 'Shardae Babatunde',
 		job: 'Designer',
-		imgSrc: '../src/assets/images/user-5.webp'
+		imgSrc: userPhoto5
 	},
 	{
 		name: 'Zula Baduwa',
 		job: 'Service Technician',
-		imgSrc: '../src/assets/images/user-6.webp'
+		imgSrc: userPhoto6
 	},
 ]
 

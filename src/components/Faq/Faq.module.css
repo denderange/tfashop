@@ -2,6 +2,10 @@
 	padding: 60px 0;
 }
 
+.faq__title{
+	color: var(--color-big-title);
+}
+
 .accordion__list{
 	margin: 40px auto 0 auto;
 	max-width: 880px;

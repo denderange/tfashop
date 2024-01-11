@@ -2,6 +2,8 @@
 	padding: 164px 0 100px 0;
 	background-color: var(--color-east-bay);
 	position: relative;
+	height: 100vh;
+	max-height: 700px;
 }
 
 .hero__container{
@@ -39,4 +41,29 @@
 	color: var(--color-white);
 	max-width: 480px;
 	margin-bottom: var(--main-offset);
+}
+
+/* ----- */
+@media (max-width: 1000px){
+	.hero__bg-text{
+		font-size: 150px;
+	}
+}
+
+@media (max-width: 740px){
+	.hero__bg-text{
+		font-size: 100px;
+	}
+}
+
+@media (max-width: 500px){
+	.hero__bg-text{
+		display: none;
+	}
+	.hero__title{
+		max-width: 580px;
+		font: 700 26px / 140% var(--font-bold);
+		color: var(--color-white);
+		margin-bottom: var(--second-offset);
+	}
 }

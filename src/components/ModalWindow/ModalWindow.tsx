@@ -5,7 +5,8 @@ import 'swiper/css/autoplay'
 import 'swiper/css/navigation';
 import styles from './ModalWindow.module.css'
 import './defaultS.css'
-import imgBotinok from '../../assets/images/img-bot-1.png'
+
+// import imgBotinok from '../../assets/images/img-bot-1.png'
 import starImg from '../../assets/icons/star.svg'
 import { useFethcProductByIdQuery } from '../../redux/slices/apiSlice';
 

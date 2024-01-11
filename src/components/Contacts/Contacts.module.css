@@ -1,6 +1,8 @@
 .contacts{
 	background-color: #f3f6f6;
 	padding: 60px 0;
+	height: 100vh;
+	max-height: 700px;
 }
 
 .contacts__container{
@@ -16,6 +18,7 @@
 
 .contacts__title{
 	margin-bottom: 40px;
+	color: var(--color-big-title);
 }
 
 .contacts__subtitle{
@@ -23,7 +26,7 @@
 	color: var(--color-bombay);
 	text-transform: uppercase;
 	margin: 0;
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 }
 
 .contacts__item{
@@ -36,7 +39,6 @@
 	font-family: var(--font-book);
 	font-size: 25px;
 	color: var(--color-river-bed);
-	margin-bottom: 20px;
 }
 
 .contacts__address{

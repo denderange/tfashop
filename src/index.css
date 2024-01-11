@@ -63,6 +63,10 @@ input, input:focus{
 	max-width: 100%;
 }
 
+.main{
+	min-height: 100vh;
+}
+
 .container {
   margin: 0 auto;
   padding: 0 15px;
@@ -103,6 +107,12 @@ input, input:focus{
 }
 
 /* ------ */
+@media (max-width: 860px){
+	.grid{
+		gap: 0px;
+	}
+}
+
 @media (max-width: 320px){
 	.grid {
 		grid-template-columns: repeat(4, 1fr);

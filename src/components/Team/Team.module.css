@@ -1,6 +1,6 @@
 .team{
 	position: relative;
-	padding: 60px 0;
+	padding: 30px 0;
 	background-color: var(--color-east-bay);
 	color: var(--color-white);
 }
@@ -32,6 +32,7 @@
 	height: 400px;
 	max-width: 380px;
 	margin-bottom: 20px;
+	border-radius: 4px;
 }
 
 .team__img{
@@ -43,7 +44,6 @@
 
 .team__subtitle{
 	display: block;
-	margin-bottom: 20px;
 }
 
 .team__job{

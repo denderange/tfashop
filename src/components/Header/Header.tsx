@@ -9,7 +9,7 @@ const CartMini = lazy(() => import('../Cart/CartMini'))
 
 const Header = () => {
 	const [cartIsVisible, setCartIsVisible] = useState(false)
-	const isMobile = useMediaQuery('(min-width: 400px)');
+	const screenMedium = useMediaQuery('(min-width: 500px)');
 	const [burgerActive, setBurgerActive] = useState(false)
 
 	const toggleBurger = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -22,7 +22,7 @@ const Header = () => {
 			<li className={styles["nav__item"]} key={item.linkText}>
 				<Link
 					className={styles["nav__link"]}
-					activeClass="active"
+					activeClass={styles["nav__list--active"]}
 					to={item.id}
 					spy={true}
 					smooth={true}
@@ -44,21 +44,10 @@ const Header = () => {
 			<div className={`container grid ${styles["header__container"]}`}>
 
 				<div className={styles["header__left"]}>
-					<Link to={''} className={`${styles["logo"]} ${styles["header__logo"]}`}>
-						TFA-Shop
-					</Link>
-				</div>
-
-				<div className={styles["header__right"]}>
-					{isMobile ? (
-						<nav className={`${styles["nav"]} ${styles["header__nav"]}`}>
-							<ul className={burgerActive ?
-								styles["nav__list"] + " " + styles["nav__list--active"] :
-								styles["nav__list"]}
-							>
-								{mapNavLinks()}
-							</ul>
-						</nav>
+					{screenMedium ? (
+						<Link to={''} className={`${styles["logo"]} ${styles["header__logo"]}`}>
+							TFA-Shop
+						</Link>
 					) : (
 						<button
 							className={styles["burger"]}
@@ -67,6 +56,19 @@ const Header = () => {
 							<span className={styles["burger__line"]}></span>
 						</button>
 					)}
+				</div>
+
+				<div className={styles["header__right"]}>
+					{/* {screenMedium ? ( */}
+					<nav className={`${styles["nav"]} ${styles["header__nav"]}`}>
+						<ul className={burgerActive ?
+							styles["nav__list"] + " " + styles["open"] :
+							styles["nav__list"]}
+						>
+							{mapNavLinks()}
+						</ul>
+					</nav>
+					{/* ) : null} */}
 
 
 					<div className={`${styles["cart"]} ${styles["header__cart"]}}`}>
@@ -76,7 +78,9 @@ const Header = () => {
 						>
 							<img src={iconBasket} alt="basket" />
 
-							<div className={styles["cart__count"]}>1</div>
+							<div className={styles["cart__count"]}>
+								14
+							</div>
 						</button>
 					</div>
 					<Suspense fallback={<LoaderSpinner />}>

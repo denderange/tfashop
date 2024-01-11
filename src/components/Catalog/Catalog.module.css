@@ -1,9 +1,10 @@
 .catalog{
-	padding: var(--big-offset) 0;
+	padding: 10px 0 30px 0;
 }
 
 .catalog__title{
-	margin-bottom: var(--main-offset);
+	color: var(--color-big-title);
+	margin-bottom: 10px;
 }
 
 .catalog__left{

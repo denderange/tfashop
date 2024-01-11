@@ -20,7 +20,7 @@ const Hero = () => {
 					to="catalog"
 					spy={true}
 					smooth={true}
-					offset={50}
+					offset={-65}
 					duration={500}
 				>
 					<Button text='Перейти к покупкам' styleClasses="btn btn--primary js-move-to" />
