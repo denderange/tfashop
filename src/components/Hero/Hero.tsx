@@ -1,6 +1,6 @@
 import { Link } from 'react-scroll';
 import Button from '../Button/Button';
-import styles from './Hero.module.css';
+import styles from './Hero.module.scss';
 
 const Hero = () => {
 	return (

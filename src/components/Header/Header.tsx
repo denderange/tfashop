@@ -3,13 +3,13 @@ import useMediaQuery from '../../hooks/useMediaQuery'
 import { navLinks } from '../../utils/navlinks'
 import { Link } from 'react-scroll'
 import iconBasket from '../../assets/icons/iconBasket.svg'
-import styles from './Header.module.css'
 import LoaderSpinner from '../LoaderSpinner/LoaderSpinner'
 const CartMini = lazy(() => import('../Cart/CartMini'))
+import styles from './Header.module.scss'
 
 const Header = () => {
 	const [cartIsVisible, setCartIsVisible] = useState(false)
-	const screenMedium = useMediaQuery('(min-width: 500px)');
+	const screenMedium = useMediaQuery('(min-width: 520px)');
 	const [burgerActive, setBurgerActive] = useState(false)
 
 	const toggleBurger = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -41,7 +41,7 @@ const Header = () => {
 
 	return (
 		<header className={styles["header"]}>
-			<div className={`container grid ${styles["header__container"]}`}>
+			<div className={`container ${styles["header__container"]}`}>
 
 				<div className={styles["header__left"]}>
 					{screenMedium ? (
@@ -59,7 +59,6 @@ const Header = () => {
 				</div>
 
 				<div className={styles["header__right"]}>
-					{/* {screenMedium ? ( */}
 					<nav className={`${styles["nav"]} ${styles["header__nav"]}`}>
 						<ul className={burgerActive ?
 							styles["nav__list"] + " " + styles["open"] :
@@ -68,8 +67,6 @@ const Header = () => {
 							{mapNavLinks()}
 						</ul>
 					</nav>
-					{/* ) : null} */}
-
 
 					<div className={`${styles["cart"]} ${styles["header__cart"]}}`}>
 						<button
@@ -77,7 +74,6 @@ const Header = () => {
 							onClick={handleClickCart}
 						>
 							<img src={iconBasket} alt="basket" />
-
 							<div className={styles["cart__count"]}>
 								14
 							</div>

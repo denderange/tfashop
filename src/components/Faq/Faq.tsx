@@ -1,5 +1,5 @@
 import iconClose from '../../assets/icons/iconClose.svg'
-import styles from './Faq.module.css'
+import styles from './Faq.module.scss'
 
 interface IFaqList {
 	question: string

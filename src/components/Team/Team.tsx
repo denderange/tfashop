@@ -4,7 +4,7 @@ import userPhoto3 from '../../assets/images/user-3.webp'
 import userPhoto4 from '../../assets/images/user-4.webp'
 import userPhoto5 from '../../assets/images/user-5.webp'
 import userPhoto6 from '../../assets/images/user-6.webp'
-import styles from './Team.module.css'
+import styles from './Team.module.scss'
 
 interface IUserProfiles {
 	name: string,

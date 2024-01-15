@@ -46,6 +46,7 @@
 
 .catalog__more{
 	margin-top: 40px;
+	padding: 16px;
 }
 
 .btn-quiz{
@@ -58,11 +59,14 @@
 
 .form-feedback__btn{
 	width: 100%;
+		&:hover{
+		background-color: var(--color-mojo);
+	}
 }
 
-.form-feedback__btn:hover{
+/* .form-feedback__btn:hover{
 	background-color: var(--color-mojo);
-}
+} */
 
 .modal-info__order{
 	width: 100%;
@@ -101,5 +105,11 @@
 	.btn-quiz:hover{
 		color: var(--color-white);
 		background-color: var(--color-river-bed);
+	}
+}
+
+@media (max-width: 860px){
+	.btn{
+		padding: 12px 6px;
 	}
 }

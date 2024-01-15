@@ -1,5 +1,5 @@
 import bgImg from '../../assets/images/img-bot-2.webp'
-import styles from './SectionAbout.module.css'
+import styles from './SectionAbout.module.scss'
 
 const SectionAbout = () => {
 	return (

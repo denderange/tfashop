@@ -1,13 +1,23 @@
-// import { useState } from 'react';
-
-import Button from '../Button/Button';
-import styles from './Quiz.module.css';
-// import Step1 from './Step1';
-// import Step4 from './Step4';
-import Step3 from './Step3';
+import { useState, lazy, Suspense } from 'react';
+import LoaderSpinner from '../LoaderSpinner/LoaderSpinner';
+const Step1 = lazy(() => import('./Step1'));
+const Step2 = lazy(() => import('./Step2'));
+const Step3 = lazy(() => import('./Step3'));
+const Step4 = lazy(() => import('./Step4'));
+import styles from './Quiz.module.scss';
 
 const Quiz = () => {
-	// const [steps, setSteps] = useState(1)
+	const [steps, setSteps] = useState(1)
+
+	const handleNextStep = () => {
+		if (steps <= 4) {
+			setSteps(steps + 1)
+		}
+	}
+
+	const handleResetSteps = () => {
+		setSteps(1)
+	}
 
 	return (
 		<section className={styles["quiz"]} id="quiz">
@@ -17,13 +27,49 @@ const Quiz = () => {
 					<h3 className={`title ${styles["quiz__title"]}`}>Мы подберем идеальную пару для вас</h3>
 					<p className={styles["quiz__descr"]}>Ответьте на три вопроса и мы вышлем каталог с самыми подходящими для вас моделями </p>
 
-					{/* <Step1 /> */}
-					<Step3 />
-					{/* <Step4 /> */}
+					<div className="quiz__step-container">
+						{steps === 1 &&
+							<Suspense fallback={<LoaderSpinner />}>
+								<Step1 />
+							</Suspense>
+						}
+						{steps === 2 &&
+							<Suspense fallback={<LoaderSpinner />}>
+								<Step2 />
+							</Suspense>
+						}
+						{steps === 3 &&
+							<Suspense fallback={<LoaderSpinner />}>
+								<Step3 />
+							</Suspense>
+						}
+						{steps === 4 &&
+							<Suspense fallback={<LoaderSpinner />}>
+								<Step4 />
+							</Suspense>
+						}
+					</div>
 
 					<div className={styles["quiz-bottom"]}>
-						<div className={styles["quiz-count"]}>1 из 4</div>
-						<Button text='Следующий шаг' styleClasses='btn-quiz' />
+						<div className={styles["quiz-count"]}>{steps} из 4</div>
+						{steps !== 4 ?
+							(
+								<button
+									className='btn-quiz'
+									onClick={handleNextStep}
+								>
+									Следующий шаг
+								</button>
+							) :
+							<button
+								className='btn-quiz'
+								onClick={handleResetSteps}
+							>
+								Новый подбор
+							</button>
+
+						}
+
 					</div>
 
 				</div>

@@ -1,20 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useFetchAllProductsQuery } from "../../redux/slices/apiSlice";
 import Button from '../Button/Button'
 import CardProduct from '../CardProduct/CardProduct'
 import RangeSlider from "../RangeSlider/RangeSlider";
-import styles from './Catalog.module.css'
+import styles from './Catalog.module.scss'
+import LoaderSpinner from "../LoaderSpinner/LoaderSpinner";
 
 const Catalog = () => {
-	const [value, setValue] = useState({ min: 0, max: 100 });
+	const sizesTableRef = useRef<HTMLTableElement>(null)
+	const [priceValue, setPriceValue] = useState({ min: 0, max: 10000 });
+	const [gender, setGender] = useState('');
+	const [size, setSize] = useState(0)
 	const [productsQuantity, setProductsQuantity] = useState(6)
 	// @ts-ignore
 	const { data, error, isLoading } = useFetchAllProductsQuery();
 
+	const onClickSize = (e: any) => {
+		sizesTableRef?.current?.querySelectorAll("td").forEach(item => {
+			item.classList.remove(styles["sizes-table--active"])
+
+			setSize(Number(e?.currentTarget?.innerText))
+
+			e?.currentTarget?.classList.add(styles["sizes-table--active"])
+		})
+	}
+
 	const showProducts = () => {
 		const productsArray = []
 
-		if (isLoading) return <p>Loading...</p>;
+		if (isLoading) return <LoaderSpinner />;
 		if (error) return <p>Error</p>;
 
 		for (let i = 0; i < data.length; i++) {
@@ -42,6 +56,30 @@ const Catalog = () => {
 		}
 	}
 
+	const handleBtnAccept = () => {
+		alert(`
+		Выбрана цена от ${priceValue.min} до ${priceValue.max}, 
+		выбран пол: ${gender},
+		выбран размер: ${size}
+		`)
+	}
+
+	const handleBtnReset = () => {
+		setPriceValue({ min: 0, max: 10000 })
+		setGender('')
+		setSize(0)
+
+		sizesTableRef?.current?.querySelectorAll("td").forEach(item => {
+			item.classList.remove(styles["sizes-table--active"])
+		})
+	}
+
+	useEffect(() => {
+		sizesTableRef?.current?.querySelectorAll("td").forEach(item => {
+			item.addEventListener('click', (e) => onClickSize(e))
+		})
+	}, [])
+
 	return (
 		<section className={styles["catalog"]} id="catalog">
 			<div className={`container ${styles["catalog__container"]}`}>
@@ -55,38 +93,63 @@ const Catalog = () => {
 								<strong className={styles["catalog__caption"]}>Цена, руб</strong>
 								<div className={[styles["catalog__prop-inner"], styles["catalog-price"]].join(' ')}>
 									<div className={styles["catalog-price__wrapper"]}>
-										<input type="text" className={styles["catalog-price__input"]} />
-										<input type="text" className={styles["catalog-price__input"]} />
+										<input
+											type="text"
+											className={styles["catalog-price__input"]}
+											value={priceValue.min}
+											onChange={() => { }}
+										/>
+										<input
+											type="text"
+											className={styles["catalog-price__input"]}
+											value={priceValue.max}
+											onChange={() => { }}
+										/>
 									</div>
-
-									<div className={styles["catalog-price__element"]}>
-										<div>
-											<RangeSlider min={0} max={100} step={1} value={value} onChange={setValue} styleClasses={""} />
-											<p>The min value is: <span>{value.min}</span></p>
-											<p>The max value is: <span>{value.max}</span></p>
-										</div>
-									</div>
+									<RangeSlider min={0} max={10000} step={1} value={priceValue} onChange={setPriceValue} styleClasses={""} />
 								</div>
 							</div>
 
 							<div className={styles["catalog__prop"]}>
-								<strong className={styles["catalog__caption"]}>Пол</strong>
-								<div className={[styles["catalog__prop-inner"], styles["catalog-price"], styles["catalog__prop-checkboxes"]].join(' ')}>
-									<label className={styles["custom-checkbox"]}>
-										<input type="checkbox" className={styles["custom-checkbox__field"]} />
-										<span className={styles["custom-checkbox__content"]}>Мужской</span>
-									</label>
-									<label className={styles["custom-checkbox"]}>
-										<input type="checkbox" className={styles["custom-checkbox__field"]} />
-										<span className={styles["custom-checkbox__content"]}>Женский</span>
-									</label>
-								</div>
+
+								<form className={styles["catalog__prop-checkboxes"]}>
+									<fieldset>
+										<legend className={styles["catalog__caption"]}>Пол</legend>
+										<div>
+											<input
+												type="radio"
+												id="male"
+												name="gender"
+												checked={gender === "male"}
+												className={styles["custom-checkbox__field"]}
+												onChange={(e) => setGender(e.currentTarget.id)}
+											/>
+											<label htmlFor="male" className={styles["custom-checkbox"]}>
+												<span className={styles["custom-checkbox__content"]}>Мужской</span>
+											</label>
+										</div>
+
+										<div>
+											<input
+												type="radio"
+												id="female"
+												name="gender"
+												checked={gender === "female"}
+												className={styles["custom-checkbox__field"]}
+												onChange={(e) => setGender(e.currentTarget.id)}
+											/>
+											<label htmlFor="female" className={styles["custom-checkbox"]}>
+												<span className={styles["custom-checkbox__content"]}>Женский</span>
+											</label>
+										</div>
+									</fieldset>
+								</form>
 							</div>
 
 							<div className={styles["catalog__prop"]}>
 								<strong className={styles["catalog__caption"]}>Размер</strong>
 								<div className={[styles["catalog__prop-inner"], styles["catalog-price"]].join(' ')}>
-									<table className={styles["sizes-table"]}>
+									<table className={styles["sizes-table"]} ref={sizesTableRef}>
 										<caption>Таблица размеров</caption>
 										<tbody>
 											<tr>
@@ -110,8 +173,14 @@ const Catalog = () => {
 							</div>
 
 							<div className={styles["catalog-filters__btns"]}>
-								<Button text='Применить' styleClasses="btn btn--secondary" />
-								<Button text='сбросить' styleClasses="btn-small" />
+								<button className="btn btn--secondary"
+									onClick={handleBtnAccept}>
+									Применить
+								</button>
+								<button className="btn-small"
+									onClick={handleBtnReset}>
+									сбросить
+								</button>
 							</div>
 						</div>
 					</div>

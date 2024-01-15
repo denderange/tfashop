@@ -2,7 +2,7 @@ import iconVk from '../../assets/icons/iconVK.svg'
 import iconInstagramm from '../../assets/icons/iconInstagram.svg'
 import EmbeddedMap from '../EmbeddedMAp/EmbeddedMap'
 import Tooltip from '../Tooltip/Tooltip'
-import styles from './Contacts.module.css'
+import styles from './Contacts.module.scss'
 
 const Contacts = () => {
 	return (

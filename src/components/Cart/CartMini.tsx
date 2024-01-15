@@ -1,7 +1,7 @@
 import { lazy, Suspense, useState } from 'react';
 import SimpleBar from 'simplebar-react';
 import 'simplebar-react/dist/simplebar.min.css';
-import styles from './CartMini.module.css'
+import styles from './CartMini.module.scss'
 import prodImg from '../../assets/images/quiz-photo-1.jpg'
 import iconTrash from '../../assets/icons/iconTrash.svg'
 import Button from '../Button/Button'

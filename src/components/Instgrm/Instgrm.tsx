@@ -6,8 +6,7 @@ import instImg2 from '../../assets/images/inst2.webp'
 import instImg3 from '../../assets/images/inst3.webp'
 import instImg4 from '../../assets/images/inst4.webp'
 import instImg5 from '../../assets/images/inst5.webp'
-import styles from './Instagr.module.css'
-import LoaderSpinner from '../LoaderSpinner/LoaderSpinner'
+import styles from './Instagr.module.scss'
 import toast, { Toaster } from 'react-hot-toast';
 
 type FormValues = {
@@ -48,12 +47,9 @@ const Instgrm = () => {
 
 		} catch (error) {
 			notifySendError()
-			console.log(error)
 		} finally {
 			setIsSending(false)
 		}
-
-		console.log(formValues.userName)
 	}
 
 	return (

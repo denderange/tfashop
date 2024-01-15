@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import './RangeSlider.css'
+import './RangeSlider.scss'
 
 type RangeSliderProps = {
 	styleClasses: string,
@@ -10,7 +10,8 @@ type RangeSliderProps = {
 	onChange?: any
 }
 
-const RangeSlider = ({ step, min, max, value, onChange, styleClasses }: RangeSliderProps) => {
+const RangeSlider = (props: RangeSliderProps) => {
+	const { step, min, max, value, onChange, styleClasses } = props
 	const [minValue, setMinValue] = useState(value ? value.min : min);
 	const [maxValue, setMaxValue] = useState(value ? value.max : max);
 

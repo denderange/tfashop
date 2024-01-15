@@ -2,7 +2,7 @@ import { useState, lazy, Suspense } from 'react'
 import iconShow from '../../assets/icons/iconShow.svg'
 import iconBasket from '../../assets/icons/iconBasket.svg'
 import { Modal } from 'react-responsive-modal';
-import styles from './CardProduct.module.css'
+import styles from './CardProduct.module.scss'
 import 'react-responsive-modal/styles.css';
 import LoaderSpinner from '../LoaderSpinner/LoaderSpinner';
 

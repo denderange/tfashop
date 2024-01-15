@@ -1,6 +1,6 @@
 import prodImg from '../../assets/images/quiz-photo-1.jpg'
 import iconArrow from '../../assets/icons/iconArrow.svg'
-import styles from './OrderPlacing.module.css'
+import styles from './OrderPlacing.module.scss'
 import { useRef } from 'react'
 
 const OrderPlacing = () => {

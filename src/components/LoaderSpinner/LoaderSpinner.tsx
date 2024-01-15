@@ -1,4 +1,4 @@
-import styles from './LoaderSpinner.module.css'
+import styles from './LoaderSpinner.module.scss'
 
 const LoaderSpinner = () => {
 	const dots = [...Array(15).keys()]

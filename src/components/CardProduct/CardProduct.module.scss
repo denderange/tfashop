@@ -57,6 +57,11 @@
 }
 
 /* ------ */
-@media (max-width: 1025px){
-
+@media (max-width: 860px){
+	.product__image{
+		max-height: 193px;
+	}	
+	.product__image > img{
+		height: 193px;
+	}
 }
