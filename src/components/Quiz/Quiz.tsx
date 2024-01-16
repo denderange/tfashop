@@ -5,8 +5,11 @@ const Step2 = lazy(() => import('./Step2'));
 const Step3 = lazy(() => import('./Step3'));
 const Step4 = lazy(() => import('./Step4'));
 import styles from './Quiz.module.scss';
+import { useDispatch } from 'react-redux'
+import { resetStateQuizState } from '../../redux/slices/quizSlice';
 
 const Quiz = () => {
+	const dispatch = useDispatch()
 	const [steps, setSteps] = useState(1)
 
 	const handleNextStep = () => {
@@ -17,6 +20,7 @@ const Quiz = () => {
 
 	const handleResetSteps = () => {
 		setSteps(1)
+		dispatch(resetStateQuizState())
 	}
 
 	return (

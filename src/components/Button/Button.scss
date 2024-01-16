@@ -82,6 +82,10 @@
 	margin-top: 10px;
 	max-width: max-content;
 	padding: 15px 80px;
+
+	&:hover{
+		background-color: var(--color-east-bay);
+	}
 }
 
 /* ------ */

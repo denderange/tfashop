@@ -7,7 +7,7 @@ import picBot4 from '../../assets/images/quiz-pictures/4.webp'
 import picBot5 from '../../assets/images/quiz-pictures/5.webp'
 import picBot6 from '../../assets/images/quiz-pictures/6.webp'
 import { useDispatch } from 'react-redux'
-import { setStateChosenVariants } from '../../redux/slices/quizSlice'
+import { setShoesKind } from '../../redux/slices/quizSlice'
 
 interface Shoes {
 	kind: string,
@@ -32,7 +32,7 @@ const Step1 = () => {
 
 		chosenVariants.includes(e.currentTarget.name) ? setChosenVariants(chosenShoes) : setChosenVariants([...chosenVariants, e.currentTarget.name])
 
-		dispatch(setStateChosenVariants(chosenVariants))
+		dispatch(setShoesKind(chosenVariants))
 	}
 
 	return (

@@ -98,7 +98,7 @@ const CartMini = ({ isVisible }: CartMiniProps) => {
 					<span className={styles["mini-cart__sum"]}>999 $</span>
 				</div>
 				<Button
-					text="В корзину"
+					text="Оплатить"
 					styleClasses="btn btn--primary btn-mini-cart"
 					handleClick={onOpenModal}
 				/>

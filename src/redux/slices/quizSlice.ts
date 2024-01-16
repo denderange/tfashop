@@ -1,38 +1,44 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export interface QuizState {
-	chosenVariants: string[],
-	checkedSize: string,
-	message: string
+	shoesKind: string[],
+	shoesSize: string,
+	message: string,
+	userNameEmail: { name: string, email: string }
 }
 
 const initialState: QuizState = {
-	chosenVariants: [],
-	checkedSize: '',
-	message: ''
+	shoesKind: [''],
+	shoesSize: '',
+	message: '',
+	userNameEmail: { name: '', email: '' }
 }
 
 export const quizSlice = createSlice({
 	name: 'quiz',
 	initialState,
 	reducers: {
-		setStateChosenVariants: (state, action) => {
-			state.chosenVariants = action.payload
+		setShoesKind: (state, action) => {
+			state.shoesKind = action.payload
 		},
-		setStateCheckedSize: (state, action) => {
-			state.checkedSize = action.payload
+		setShoesSize: (state, action) => {
+			state.shoesSize = action.payload
 		},
-		setStateMessage: (state, action) => {
+		setUserMessage: (state, action) => {
 			state.message = action.payload
+		},
+		setNameEmail: (state, action) => {
+			state.userNameEmail = action.payload
 		},
 		resetStateQuizState: () => initialState
 	}
 })
 
 export const {
-	setStateChosenVariants,
-	setStateCheckedSize,
-	setStateMessage,
+	setShoesKind,
+	setShoesSize,
+	setUserMessage,
+	setNameEmail,
 	resetStateQuizState
 } = quizSlice.actions
 

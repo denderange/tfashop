@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styles from './Quiz.module.scss'
 import { useDispatch } from 'react-redux'
-import { setStateMessage } from '../../redux/slices/quizSlice'
+import { setUserMessage } from '../../redux/slices/quizSlice'
 
 const Step3 = () => {
 	const dispatch = useDispatch()
@@ -9,7 +9,7 @@ const Step3 = () => {
 
 	const handleMessage = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
 		setMessage(e.currentTarget.value)
-		dispatch(setStateMessage(message))
+		dispatch(setUserMessage(message))
 	}
 
 	return (

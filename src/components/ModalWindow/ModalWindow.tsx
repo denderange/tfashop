@@ -5,10 +5,9 @@ import 'swiper/css/autoplay'
 import 'swiper/css/navigation';
 import styles from './ModalWindow.module.scss'
 import './defaultS.scss'
-
-// import imgBotinok from '../../assets/images/img-bot-1.png'
 import starImg from '../../assets/icons/star.svg'
 import { useFethcProductByIdQuery } from '../../redux/slices/apiSlice';
+import LoaderSpinner from '../LoaderSpinner/LoaderSpinner';
 
 type ModalWindowProps = {
 	productId: number
@@ -28,7 +27,7 @@ const ModalWindow = ({ productId }: ModalWindowProps) => {
 		e.currentTarget.classList.add(`${styles['modal-sizes__btn--active']}`)
 	}
 
-	if (isLoading) return <p>Loading...</p>;
+	if (isLoading) return <LoaderSpinner />;
 	if (error) return <p>Error</p>;
 
 	return (

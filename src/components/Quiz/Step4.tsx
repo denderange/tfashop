@@ -1,7 +1,9 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { sendTgMessage } from '../../api/telegram'
 import toast from 'react-hot-toast';
 import styles from './Quiz.module.scss'
+import { useDispatch } from 'react-redux'
+import { setNameEmail } from '../../redux/slices/quizSlice';
 import { useSelector } from 'react-redux'
 
 type Nameemail = {
@@ -10,13 +12,21 @@ type Nameemail = {
 }
 
 const Step4 = () => {
-	const stateVariant = useSelector((state: any) => state.quiz.chosenVariants)
-	const stateMessage = useSelector((state: any) => state.quiz.message)
-	const stateSize = useSelector((state: any) => state.quiz.checkedSize)
+	const dispatch = useDispatch()
+	const stateUserQuiz = useSelector((state: any) => state.quiz)
 
 	//@ts-ignore
 	const [isSending, setIsSending] = useState(false)
 	const [nameemail, setNameemail] = useState<Nameemail>({ name: '', email: '' })
+
+	const handleForm = (e: React.ChangeEvent<HTMLInputElement>) => {
+		if (e.currentTarget.name === 'userName') {
+			setNameemail({ ...nameemail, name: e.target.value })
+		} else if (e.currentTarget.name === 'userEmail') {
+			setNameemail({ ...nameemail, email: e.target.value })
+		}
+		dispatch(setNameEmail({ name: nameemail.name, email: nameemail.email }))
+	}
 
 	const notifySendSuccess = () => toast('Сообщение отправлено.', {
 		style: {
@@ -36,7 +46,7 @@ const Step4 = () => {
 		try {
 			setIsSending(true)
 
-			const message = `Выбраны: ${stateVariant} Размер: ${stateSize} Доп. инфо: ${stateMessage} Пользователь: ${nameemail.name} e-mail: ${nameemail.email}`
+			const message = `Выбраны: ${stateUserQuiz.shoesKind} Размер: ${stateUserQuiz.shoesSize} Доп. инфо: ${stateUserQuiz.message} Пользователь: ${stateUserQuiz.userNameEmail.name} e-mail: ${stateUserQuiz.userNameEmail.email}`
 
 			await sendTgMessage(message)
 			notifySendSuccess()
@@ -60,14 +70,16 @@ const Step4 = () => {
 				className={styles["last-question__input"]}
 				placeholder="Ваше имя"
 				minLength={2}
-				onChange={(e) => setNameemail({ ...nameemail, name: e.target.value })}
+				name='userName'
+				onChange={(e) => handleForm(e)}
 			/>
 			<input
 				type="email"
 				className={styles["last-question__input"]}
 				placeholder="E-mail"
 				minLength={5}
-				onChange={(e) => setNameemail({ ...nameemail, email: e.target.value })}
+				name='userEmail'
+				onChange={(e) => handleForm(e)}
 			/>
 			<button
 				className={"btn btn--primary btn-last-question"}
@@ -75,6 +87,8 @@ const Step4 = () => {
 			>
 				Получить
 			</button>
+
+			*информация отправляется в Telegram разработчика
 		</div>
 	)
 }

@@ -79,6 +79,9 @@ const Instgrm = () => {
 						<button className="btn btn--primary form-feedback__btn" type='submit'>
 							{isSending ? "...идет отправка..." : "Отправить"}
 						</button>
+						<span style={{ color: '#fff' }}>
+							*информация отправляется в Telegram разработчика
+						</span>
 					</form>
 					<Toaster />
 				</div>

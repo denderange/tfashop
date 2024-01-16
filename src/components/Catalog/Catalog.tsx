@@ -1,12 +1,15 @@
 import { useState, useEffect, useRef } from "react";
-import { useFetchAllProductsQuery } from "../../redux/slices/apiSlice";
 import Button from '../Button/Button'
 import CardProduct from '../CardProduct/CardProduct'
 import RangeSlider from "../RangeSlider/RangeSlider";
 import styles from './Catalog.module.scss'
 import LoaderSpinner from "../LoaderSpinner/LoaderSpinner";
+import { useDispatch } from 'react-redux';
+import { setFilterStore, resetFilterStore } from "../../redux/slices/filterSlice";
+import { useFetchAllProductsQuery } from "../../redux/slices/apiSlice";
 
 const Catalog = () => {
+	const dispatch = useDispatch()
 	const sizesTableRef = useRef<HTMLTableElement>(null)
 	const [priceValue, setPriceValue] = useState({ min: 0, max: 10000 });
 	const [gender, setGender] = useState('');
@@ -30,6 +33,7 @@ const Catalog = () => {
 
 		if (isLoading) return <LoaderSpinner />;
 		if (error) return <p>Error</p>;
+		console.log(data.length)
 
 		for (let i = 0; i < data.length; i++) {
 			if (i < productsQuantity) {
@@ -57,6 +61,13 @@ const Catalog = () => {
 	}
 
 	const handleBtnAccept = () => {
+		dispatch(setFilterStore({
+			price: { min: priceValue.min, max: priceValue.max },
+			gender: gender,
+			size: size,
+			quantity: productsQuantity
+		}))
+
 		alert(`
 		Выбрана цена от ${priceValue.min} до ${priceValue.max}, 
 		выбран пол: ${gender},
@@ -68,6 +79,7 @@ const Catalog = () => {
 		setPriceValue({ min: 0, max: 10000 })
 		setGender('')
 		setSize(0)
+		dispatch(resetFilterStore())
 
 		sizesTableRef?.current?.querySelectorAll("td").forEach(item => {
 			item.classList.remove(styles["sizes-table--active"])
@@ -187,7 +199,6 @@ const Catalog = () => {
 
 					<div className={`${styles["catalog__grid"]}`}>
 						<ul className={`grid ${styles["catalog-list"]}`}>
-							{/* {getAllProducts()} */}
 							{showProducts()}
 						</ul>
 						<Button

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import imgBg from '../../assets/images/quiz-pictures/qs2.webp'
 import styles from './Quiz.module.scss'
 import { useDispatch } from 'react-redux'
-import { setStateCheckedSize } from '../../redux/slices/quizSlice'
+import { setShoesSize } from '../../redux/slices/quizSlice'
 
 const sizes = ["менее 36", "36-38", "39-41", "42-44", "45 и больше"]
 
@@ -11,9 +11,8 @@ const Step2 = () => {
 	const [checkedSize, setCheckedSize] = useState('')
 
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		e.preventDefault()
 		setCheckedSize(e.currentTarget.value)
-		dispatch(setStateCheckedSize(checkedSize))
+		dispatch(setShoesSize(checkedSize))
 	}
 
 	return (
@@ -23,7 +22,7 @@ const Step2 = () => {
 				<form className={styles["quiz-size__form"]}>
 					<fieldset>
 						{sizes.map((size) => (
-							<>
+							<span key={size}>
 								<input
 									type="radio"
 									name={size}
@@ -36,7 +35,7 @@ const Step2 = () => {
 								<label className={styles["quiz-question__label"]} htmlFor={size}>
 									<span>{size}</span>
 								</label>
-							</>
+							</span>
 						))}
 					</fieldset>
 				</form>

@@ -39,7 +39,6 @@ const CardProduct = ({ imgSrc = "", title = "", price = 0, id }: CardProductProp
 						className="product__btn"
 						aria-label="Добавить товар в корзину"
 						data-id={id}
-					// onClick={onOpenModal}
 					>
 						<img src={iconBasket} alt="Добавить товар в корзину" />
 					</button>
