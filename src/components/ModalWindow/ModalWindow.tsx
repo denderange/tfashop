@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -8,6 +9,9 @@ import './defaultS.scss'
 import starImg from '../../assets/icons/star.svg'
 import { useFethcProductByIdQuery } from '../../redux/slices/apiSlice';
 import LoaderSpinner from '../LoaderSpinner/LoaderSpinner';
+import { addToCart } from '../../redux/slices/cartSlice';
+import { useDispatch } from 'react-redux';
+import toast from 'react-hot-toast';
 
 type ModalWindowProps = {
 	productId: number
@@ -15,6 +19,8 @@ type ModalWindowProps = {
 
 const ModalWindow = ({ productId }: ModalWindowProps) => {
 	const { data, error, isLoading } = useFethcProductByIdQuery(productId);
+	const [size, setSize] = useState(0)
+	const dispatch = useDispatch()
 
 	const avalibleSizes = [34, 35, 36, 37, 38]
 
@@ -25,10 +31,32 @@ const ModalWindow = ({ productId }: ModalWindowProps) => {
 			})
 
 		e.currentTarget.classList.add(`${styles['modal-sizes__btn--active']}`)
+
+		setSize(Number(e.currentTarget.getAttribute('data-name')))
 	}
 
 	if (isLoading) return <LoaderSpinner />;
 	if (error) return <p>Error</p>;
+
+	const notifySendSuccess = () => {
+		toast('Товар добавлен в корзину.', {
+			style: {
+				border: '1px solid #46005c',
+				backgroundColor: "#DBBBA9"
+			}
+		})
+	};
+
+	const handleAddToCart = () => {
+		notifySendSuccess()
+
+		dispatch(addToCart({
+			productTitle: data?.title || 'no title',
+			productQuantity: 1,
+			size: Number(size),
+			price: data?.price
+		}))
+	}
 
 	return (
 		<div className={styles["modal-content"]}>
@@ -76,10 +104,13 @@ const ModalWindow = ({ productId }: ModalWindowProps) => {
 				<div className={styles["modal-info"]}>
 					<div className={styles["modal-info__top"]}>
 						<span className={styles["modal-info__vendor"]}>
-							Артикул: XXXXXX
+							Артикул: {new Date().getMilliseconds()}
 						</span>
 						<span className={styles["modal-info__quantity"]}>
-							В наличии: <span>XXX штук</span>
+							В наличии:{' '}
+							<span>
+								{Math.floor(1 + Math.random() * (100 - 1))} штук
+							</span>
 						</span>
 					</div>
 					<h3 className={styles["modal-info__title"]}>
@@ -102,6 +133,7 @@ const ModalWindow = ({ productId }: ModalWindowProps) => {
 								<li className={styles["modal-sizes__item"]} key={size}>
 									<button
 										className={`${styles["modal-sizes__btn"]} `}
+										data-name={size}
 										onClick={(e) => choseSize(e)}
 									>
 										{size}
@@ -117,11 +149,14 @@ const ModalWindow = ({ productId }: ModalWindowProps) => {
 							{data.price}
 						</span>
 						<span className={styles["modal-info__old-price"]}>
-							{data.price - 5}
+							{data.price + 5}
 						</span>
 					</div>
 
-					<button className="btn btn--primary modal-info__order">
+					<button
+						className="btn btn--primary modal-info__order"
+						onClick={() => handleAddToCart()}
+					>
 						Заказать
 					</button>
 
@@ -157,5 +192,3 @@ const ModalWindow = ({ productId }: ModalWindowProps) => {
 }
 
 export default ModalWindow
-
-// className={styles[""]}

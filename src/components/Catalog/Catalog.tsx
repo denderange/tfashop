@@ -33,7 +33,6 @@ const Catalog = () => {
 
 		if (isLoading) return <LoaderSpinner />;
 		if (error) return <p>Error</p>;
-		console.log(data.length)
 
 		for (let i = 0; i < data.length; i++) {
 			if (i < productsQuantity) {

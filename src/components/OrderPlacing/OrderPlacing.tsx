@@ -1,9 +1,13 @@
-import prodImg from '../../assets/images/quiz-photo-1.jpg'
+import prodImg from '../../assets/images/default-product-image.webp'
 import iconArrow from '../../assets/icons/iconArrow.svg'
 import styles from './OrderPlacing.module.scss'
 import { useRef } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+// import { removeFromCart } from '../../redux/slices/cartSlice';
 
 const OrderPlacing = () => {
+	// const dispatch = useDispatch()
+	const cartItems = useSelector((state: any) => state.cart)
 	const orderListRef = useRef<HTMLUListElement>(null)
 	const orderBtnIconRef = useRef<HTMLImageElement>(null)
 
@@ -11,6 +15,12 @@ const OrderPlacing = () => {
 		orderListRef?.current?.classList.toggle(`${styles['cart-modal-order__list--show']}`)
 		orderBtnIconRef?.current?.classList.toggle(`${styles["img-rotate"]}`)
 	}
+
+	// TODO handle remove the item from state -->
+	// const removeFromCartHandler = async (title: string) => {
+	// 	dispatch(removeFromCart(title))
+	// }
+
 	return (
 		<div className={styles["modal-content"]}>
 			<div className={styles["cart-modal__top"]}>
@@ -27,14 +37,22 @@ const OrderPlacing = () => {
 					${styles["span"]}
 					`}
 					>
-						Товаров в заказе: <span>XXX шт</span>
+						Товаров в заказе:{' '}
+						<span>
+							{cartItems.reduce((sum: any, item: any) => sum + item.productQuantity, 0)} шт
+						</span>
 					</div>
 					<div className={`
 					${styles["cart-modal-order__sum"]} 
 					${styles["span"]}
 					`}
 					>
-						Общая сумма заказа: <span>99999 $</span>
+						Общая сумма заказа:{' '}
+						<span>
+							{cartItems
+								.reduce((sum: any, item: any) => sum + item.price, 0)
+								.toFixed(2)} $
+						</span>
 					</div>
 					<div className={styles["cart-modal-order__content"]}>
 						<button
@@ -44,27 +62,31 @@ const OrderPlacing = () => {
 							Состав заказа
 							<img src={iconArrow} alt="" ref={orderBtnIconRef} />
 						</button>
+
 						<ul className={styles["cart-modal-order__list"]} ref={orderListRef}>
-							<li className={styles["cart-modal-order__item"]}>
-								<article className={`${styles["cart-modal-order__product"]} ${styles["cart-modal-product"]}`}>
-									<div className={styles["cart-modal-product__image"]}>
-										<img src={prodImg} alt="" />
-									</div>
-									<div className={styles["cart-modal-product__content"]}>
-										<div className={styles["cart-modal-product__text"]}>
-											<h3 className={styles["cart-modal-product__title"]}>Prod t</h3>
-											<span className={styles["cart-modal-product__price"]}>$</span>
+							{cartItems.map((item: any) => (
+								<li className={styles["cart-modal-order__item"]}>
+									<article className={`${styles["cart-modal-order__product"]} ${styles["cart-modal-product"]}`}>
+										<div className={styles["cart-modal-product__image"]}>
+											<img src={prodImg} alt="" />
 										</div>
-										<button
-											className={styles["cart-modal-product__delete"]}
-											aria-label="Remove from cart"
-										>
-											Удалить
-										</button>
-									</div>
-								</article>
-							</li>
+										<div className={styles["cart-modal-product__content"]}>
+											<div className={styles["cart-modal-product__text"]}>
+												<h3 className={styles["cart-modal-product__title"]}>{item.productTitle}</h3>
+												<span className={styles["cart-modal-product__price"]}>{item.price}{' '}$</span>
+											</div>
+											<button
+												className={styles["cart-modal-product__delete"]}
+												aria-label="Remove from cart"
+											>
+												Удалить
+											</button>
+										</div>
+									</article>
+								</li>
+							))}
 						</ul>
+
 					</div>
 				</div>
 			</div>

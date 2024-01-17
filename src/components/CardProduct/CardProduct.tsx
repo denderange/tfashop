@@ -5,6 +5,7 @@ import { Modal } from 'react-responsive-modal';
 import styles from './CardProduct.module.scss'
 import 'react-responsive-modal/styles.css';
 import LoaderSpinner from '../LoaderSpinner/LoaderSpinner';
+const CartMini = lazy(() => import('../Cart/CartMini'))
 
 const ModalWindow = lazy(() => import('../ModalWindow/ModalWindow'))
 
@@ -21,6 +22,10 @@ const CardProduct = ({ imgSrc = "", title = "", price = 0, id }: CardProductProp
 
 	const onOpenModal = () => setOpen(true);
 	const onCloseModal = () => setOpen(false);
+
+	const openBasket = () => {
+		//TODO redux
+	}
 
 	return (
 		<article className={styles["product"]}>
@@ -39,9 +44,11 @@ const CardProduct = ({ imgSrc = "", title = "", price = 0, id }: CardProductProp
 						className="product__btn"
 						aria-label="Добавить товар в корзину"
 						data-id={id}
+						onClick={() => openBasket()}
 					>
 						<img src={iconBasket} alt="Добавить товар в корзину" />
 					</button>
+
 				</div>
 			</div>
 

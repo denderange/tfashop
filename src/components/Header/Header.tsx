@@ -6,8 +6,10 @@ import iconBasket from '../../assets/icons/iconBasket.svg'
 import LoaderSpinner from '../LoaderSpinner/LoaderSpinner'
 const CartMini = lazy(() => import('../Cart/CartMini'))
 import styles from './Header.module.scss'
+import { useSelector } from 'react-redux'
 
 const Header = () => {
+	const countProducts = useSelector((state: any) => state.cart.length)
 	const [cartIsVisible, setCartIsVisible] = useState(false)
 	const screenMedium = useMediaQuery('(min-width: 520px)');
 	const [burgerActive, setBurgerActive] = useState(false)
@@ -75,7 +77,7 @@ const Header = () => {
 						>
 							<img src={iconBasket} alt="basket" />
 							<div className={styles["cart__count"]}>
-								14
+								{countProducts}
 							</div>
 						</button>
 					</div>
